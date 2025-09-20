@@ -32,10 +32,8 @@ RUN supervisord --version
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # 复制nginx的配置文件
 COPY nginx.conf /etc/nginx/sites-available/default
-# 清理默认nginx配置，他会自动创建软链接/etc/nginx/sites-enabled/default，链接至/etc/nginx/sites-available/default
-#RUN rm -f /etc/nginx/sites-enabled/default
 
-# 声明：暴露80端口，方便使用人员阅读
+# 声明暴露的端口，通过docker ps或者docker inspect可以查看
 EXPOSE 80
 
 
